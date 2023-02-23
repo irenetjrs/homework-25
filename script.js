@@ -52,9 +52,9 @@ Object.defineProperty(salaries, 'sum', {
 });
 Object.defineProperty(salaries, 'addSalaries', {
    set (value){
-   let newSalaries;
    for (let i = 0; i < value.length; i++){
-      newSalaries = value[i].split(':');
+      let newSalaries = value[i].split(':');
+      console.log(newSalaries);
       this[newSalaries[0]] = +newSalaries[1];
    }
 },
