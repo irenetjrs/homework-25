@@ -74,3 +74,22 @@ salaries.sum
 
 // task 4
 
+let userr = {
+   name: 'Mike',
+   surname: 'Davis',
+   age: 25,
+}
+Object.defineProperty(userr, 'userInfo', {
+   get(){
+      let data = [];
+      for(key in this){
+         data.push(`${key} : ${this[key]}`);
+      }
+      return data.join(', ');
+   },
+   enumerable: false,
+   configurtive: true,
+});
+console.log(userr.userInfo);
+userr.login = 'MK-18';
+console.log(userr.userInfo);
