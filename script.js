@@ -33,4 +33,44 @@ Object.seal(configurateDB);
 console.log(Object.isFrozen(dataBase));
 console.log(Object.isSealed(configurateDB));
 
+// task 3
+
+let salaries = {
+   frontend: 2000,
+   backend: 1500,
+   design: 1000,
+}
+Object.defineProperty(salaries, 'sum', {
+   get(){
+      let sum = 0;
+      for (salary in this){
+         sum += this[salary];
+      }
+      console.log(sum);
+   },
+   enumerable: false,
+});
+Object.defineProperty(salaries, 'addSalaries', {
+   set (value){
+   let newSalaries;
+   for (let i = 0; i < value.length; i++){
+      newSalaries = value[i].split(':');
+      this[newSalaries[0]] = +newSalaries[1];
+   }
+},
+enumerable: false,
+});
+
+console.log(salaries);
+salaries.sum
+salaries.addSalaries = [
+   'frontend: 2500',
+   'backend: 1750', 
+   'design: 1300', 
+   'manager: 800',
+];
+console.log(salaries);
+salaries.sum
+
+// task 4
 
